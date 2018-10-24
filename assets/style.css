@@ -1,0 +1,16 @@
+body {
+  background: url(brick-wall-1869537.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+h1, h3 {
+    font-family: 'Passion One', cursive;
+}
+.card-header {
+    font-size: 25px;
+    font-family: 'Gentium Book Basic', serif;
+}
+#train-table th,
+td {
+  display: inline-block;
+  width: 16.575%;
+}

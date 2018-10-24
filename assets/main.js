@@ -67,31 +67,38 @@ database.ref().on("child_added", function(childSnapshot) {
 // var currentTimeInt = parseInt(currentTime);
 // console.log("CURRENT INT: " + currentTimeInt);
 //-------------------------------------------------------------------------------------
+    //Collaborated with Tim Albrecht on this code syntax
+    var trainDiff = moment().diff(moment.unix(trainStart), "minutes");     
+    var trainRemainder = trainDiff % trainFrequency;                                     
+    var minAway = trainFrequency - trainRemainder;                            
+    var trainArrival = moment().add(minAway, "m").format("hh:mm A");
 
-    var trainStartPretty = moment(trainStart, "hmm").format("HH:mm");
-    console.log("START TIME: " + trainStartPretty);
+//-------------------------------------------------------------------------------------
+    //tried to formate the time calculations using the in-class assignment from folder 21 of the firebase lecture.
+    // var trainStartPretty = moment(trainStart, "hmm").format("HH:mm");
+    // console.log("START TIME: " + trainStartPretty);
 
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
+    // var currentTime = moment();
+    // console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
 
-    // Difference between the times
-    var diffTime = moment.utc(moment(currentTime,"DD/MM/YYYY HH:mm:ss").diff(moment(trainStartPretty,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss")
-    //var diffTime = moment().diff(moment(trainStartPretty, "hmm"), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
+    // // Difference between the times
+    // var diffTime = moment.utc(moment(currentTime,"DD/MM/YYYY HH:mm:ss").diff(moment(trainStartPretty,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss")
+    // //var diffTime = moment().diff(moment(trainStartPretty, "hmm"), "minutes");
+    // console.log("DIFFERENCE IN TIME: " + diffTime);
 
-    // Time apart (remainder)
-    var tRemainder = diffTime % trainFrequency;
-    console.log(tRemainder);
+    // // Time apart (remainder)
+    // var tRemainder = diffTime % trainFrequency;
+    // console.log(tRemainder);
 
-    // Minute Until Train
-    var trainArrival = trainFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + trainArrival);
+    // // Minute Until Train
+    // var trainArrival = trainFrequency - tRemainder;
+    // console.log("MINUTES TILL TRAIN: " + trainArrival);
 
-    // Next Train
-    var minAway = moment().add(trainArrival, "minutes");
+    // // Next Train
+    // var minAway = moment().add(trainArrival, "minutes");
 
-    var minAway = trainArrival - currentTime;
-    console.log(minAway);
+    // var minAway = trainArrival - currentTime;
+    // console.log(minAway);
   //-------------------------------------------------------------------------------------
 
     // Create the new row
@@ -105,4 +112,5 @@ database.ref().on("child_added", function(childSnapshot) {
 
     // Append the new row to the table
     $("#train-table > tbody").append(newRow);
+    //For some reason it adds a new row whenever the page is refreshed but only updates the arrival time with the current time
 });

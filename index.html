@@ -8,32 +8,26 @@
   <title>Train Scheduler</title>
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Passion+One" rel="stylesheet">
 
   <!-- Firebase Reference -->
   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
   <!-- Moment.js Reference -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-
-  <style>
-    #train-table th,
-    td {
-      display: inline-block;
-      width: 16.575%;
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- Employee Tracker -->
-  <div class="container" style="background-color: black">
-
-    <!-- Jumbotron -->
-    <div class="jumbotron" style="background-color: orangered; color: white">
+  <div class="container">
+    
+    <div class="jumbotron border border-dark" style="background-color: #003826; color: white">
       <h1 class="text-center">Train Schedule</h1>
       <h3 class="text-center">A Comprehensive Directory of Trains Arriving and Departing</h3>
     </div>
@@ -42,9 +36,9 @@
 
       <div class="col-md-12">
 
-        <!-- Current Employees-->
+        <!-- Current Trains-->
         <div class="card mb-4">
-          <div class="card-header">Up-to-Date Train Details</div>
+          <div class="card-header border border-dark"style="background-color: #003826; color: white">Up-to-Date Train Details</div>
           <div class="card-body">
             <table class="table table-sm table-hover" id='train-table'>
               <thead>
@@ -66,9 +60,9 @@
 
     <div class="row">
       <div class="col-md-12">
-        <!-- Add Employee  -->
+        <!-- Add Train  -->
         <div class="card mb-4">
-          <div class="card-header">Add Train</div>
+          <div class="card-header" style="background-color: #003826; color: white">Add Train</div>
           <div class="card-body">
 
             <!-- Entry Form -->
@@ -82,14 +76,14 @@
                 <input class="form-control" id="destination-input" placeholder="Somewhere Over the Rainbow" type="text">
               </div>
               <div class="form-group">
-                <label for="start-input">First Train Time (HH:mm Military Time)</label>
+                <label for="start-input">First Train Time (HHmm Military Time)</label>
                 <input class="form-control" id="start-input" placeholder="16:32" type="text">
               </div>
               <div class="form-group">
                 <label for="frequency-input">Frequency (min)</label>
                 <input class="form-control" id="frequency-input" placeholder="2000" type="text">
               </div>
-              <button class="btn btn-primary float-right border border-dark" id="add-train-btn" style="background-color: orangered">Submit</button>
+              <button class="btn btn-primary float-right border border-dark" id="add-train-btn" style="background-color: #003826; color: white">Submit</button>
             </form>
 
           </div>
